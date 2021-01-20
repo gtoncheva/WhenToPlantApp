@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361509826964",
+    "project_id": "whentoplantapp",
+    "storage_bucket": "whentoplantapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361509826964:android:aa0660b43f6e0ecf9e1f81",
+        "android_client_info": {
+          "package_name": "com.searonix.whentoplantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361509826964-ev56jsog1spnkb0l3hltclgni36j0lvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgnbQ9iRxmS1yGBXSkCl1ouTwbkamqhOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361509826964-ev56jsog1spnkb0l3hltclgni36j0lvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
