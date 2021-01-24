@@ -1,8 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//firebase
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
+    signingConfigs {
+        debug {
+            //relative path for the file location
+            storeFile rootProject.file('debug2.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey2'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 29
 
     defaultConfig {
@@ -16,7 +28,12 @@ android {
     }
 
     buildTypes {
+        debug{
+            signingConfig signingConfigs.debug
+
+        }
         release {
+            signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -45,5 +62,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    // Import the Firebase BoM, analytics, crashlytics
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 }
