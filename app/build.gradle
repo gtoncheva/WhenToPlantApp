@@ -6,6 +6,14 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/geri/AndroidStudioProjects/WhenToPlantApp/debug2.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey2'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 29
 
     defaultConfig {
