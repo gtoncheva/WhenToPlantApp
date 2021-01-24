@@ -8,7 +8,8 @@ apply plugin: 'com.google.firebase.crashlytics'
 android {
     signingConfigs {
         debug {
-            storeFile file('/Users/geri/AndroidStudioProjects/WhenToPlantApp/debug2.keystore')
+            //relative path for the file location
+            storeFile rootProject.file('debug2.keystore')
             storePassword 'android'
             keyAlias 'androiddebugkey2'
             keyPassword 'android'
@@ -27,6 +28,10 @@ android {
     }
 
     buildTypes {
+        debug{
+            signingConfig signingConfigs.debug
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
