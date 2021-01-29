@@ -47,17 +47,22 @@ class HomeFragment : Fragment() {
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        Log.d(
-                            "fragmentLog",
-                            document.id + " => " + document.data
-                        )
-                        val treename = document.getString("treeName")
-                        val treeinfo = document.getString("info")
-                        text_info.text = treeinfo
-                        text_home.text = treename
 
+                    val treenames = task.result!!.map { snapshot ->
+                        snapshot["treeName"].toString()
                     }
+
+                    val treeinfos = task.result!!.map { snapshot ->
+                        snapshot["info"].toString()
+                    }
+
+                    Log.d("fragmentLog", "list of treenames: + $treenames")
+                    Log.d("fragmentLog", "list of treeinfos: + $treeinfos")
+
+                    //set apple info and name only for now
+                    text_info.text = treeinfos[0]
+                    text_home.text = treenames[0]
+                    
                 } else {
                     Log.w("fragmentLog", "Error getting documents.", task.exception)
                 }
